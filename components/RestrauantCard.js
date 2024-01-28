@@ -6,9 +6,9 @@ const RestrauantCard = (props) => {
 
   return (
     <div className="card">
-      <img src={IMG_CDN_URL + cloudinaryImageId} alt="img" /> {/* Use cloudinaryImageId here */}
+      {/* <img src={IMG_CDN_URL + cloudinaryImageId} alt="img" /> Use cloudinaryImageId here */}
       <h2>{name}</h2>
-      <h3>{cuisines.join(',')}</h3>
+      <h3>{cuisines}</h3>
       <h4>{costForTwo}</h4>
       <h4>
         {avgRating} * {/* Assuming avgRating is a number */}

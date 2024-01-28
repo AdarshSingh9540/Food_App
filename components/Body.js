@@ -10,20 +10,39 @@ function filterData(searchInput, restaurants) {
 }
 
 const Body = () => {
-  const [restaurants, setRestaurants] = useState(restrauantList);
+  const [restaurants, setRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  console.log(restaurants)
 useEffect(() => {
-  getRestaurants();
+  fetchdata();
 }, []);
 
-async function getRestaurants(){
-   const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-   const json = await data.json();
-   console.log(json);
-   console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
-   setRestaurants(json.data.cards[2].card.card.gridElements.infoWithStyle);
+// async function getRestaurants(){
+//    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+//    const json = await data.json();
+//   //  console.log(json);
+//    console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
+//   //  setRestaurants(json.data.cards[2].card.card.gridElements.infoWithStyle);
 
-}
+// }
+const fetchdata = async () => {
+  try {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+
+    console.log(json.data.cards[1].card.card.gridElements.infoWithStyle);
+
+    setRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    
+   
+  } catch (error) {
+    
+    console.log(error);
+  }
+};
 
   
   return (
@@ -48,8 +67,8 @@ async function getRestaurants(){
       </div>
 
       <div className="list">
-        {restaurants.map((restaurant) => (
-          <RestrauantCard key={restaurant.id} restaurant={restaurant} />
+        {restaurants.map((restaurant,index) => (
+          <RestrauantCard key={index} restaurant={restaurant} />
         ))}
       </div>
     </>
