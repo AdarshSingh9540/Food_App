@@ -6,8 +6,8 @@ const RestrauantCard = (props) => {
 
   return (
     <div className="card">
-      <img src={IMG_CDN_URL + props.restaurant.info.cloudinaryImageId} alt="img" /> 
-      <h2>{props.restaurant.info.name}</h2>
+      <img  src={IMG_CDN_URL + props.restaurant.info.cloudinaryImageId} alt="img" /> 
+      <h1>{props.restaurant.info.name}</h1>
       <h3>{props.restaurant.info.locality}</h3>
       <h4>{props.restaurant.info.avgRatingString} stars</h4>
       <h4>

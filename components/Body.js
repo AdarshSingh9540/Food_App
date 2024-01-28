@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { restrauantList } from "../Constant";
 import RestrauantCard from "./RestrauantCard";
+import Shimmer from "./Shimmer";
 
 function filterData(searchInput, restaurants) {
   const filteredData = restaurants.filter((restaurant) =>
-    restaurant.name.toLowerCase().includes(searchInput.toLowerCase())
+    restaurant.info.name.toLowerCase().includes(searchInput.toLowerCase())
   );
   return filteredData;
 }
 
 const Body = () => {
-  const [restaurants, setRestaurants] = useState([]);
+  const [allRestaurants,setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  console.log(restaurants)
+  // console.log(restaurants)
 useEffect(() => {
   fetchdata();
 }, []);
@@ -33,9 +35,10 @@ const fetchdata = async () => {
 
     const json = await data.json();
 
-    console.log(json.data.cards[1].card.card.gridElements.infoWithStyle);
-
-    setRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    // console.log(json.data.cards[1].card.card.gridElements.infoWithStyle);
+    // optional channing
+    setAllRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     
    
   } catch (error) {
@@ -44,8 +47,12 @@ const fetchdata = async () => {
   }
 };
 
+if(!allRestaurants) return null;
+
+if(filteredRestaurants?.length ===0)  
+return <h1>No Restraunt is match</h1>;
   
-  return (
+  return allRestaurants.length===0?(<Shimmer/>) : (
     <>
       <div className="search-container">
         <input
@@ -56,10 +63,10 @@ const fetchdata = async () => {
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <button
-          className="search--btn"
+          className="search-btn"
           onClick={() => {
-            const data = filterData(searchInput, restrauantList);
-            setRestaurants(data);
+            const data = filterData(searchInput, allRestaurants);
+            setFilteredRestaurants(data);
           }}
         >
           Search
@@ -67,7 +74,8 @@ const fetchdata = async () => {
       </div>
 
       <div className="list">
-        {restaurants.map((restaurant,index) => (
+
+        {filteredRestaurants.map((restaurant,index) => (
           <RestrauantCard key={index} restaurant={restaurant} />
         ))}
       </div>
