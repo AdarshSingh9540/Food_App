@@ -6,14 +6,14 @@ const RestrauantCard = (props) => {
 
   return (
     <div className="card">
-      {/* <img src={IMG_CDN_URL + cloudinaryImageId} alt="img" /> Use cloudinaryImageId here */}
+      <img src={IMG_CDN_URL + props.restaurant.info.cloudinaryImageId} alt="img" /> 
       <h2>{props.restaurant.info.name}</h2>
-      <h3>{props.restaurant.info.name}</h3>
-      <h4>{props.restaurant.info.name}</h4>
+      <h3>{props.restaurant.info.locality}</h3>
+      <h4>{props.restaurant.info.avgRatingString} stars</h4>
       <h4>
-        {props.restaurant.info.name} * {/* Assuming avgRating is a number */}
+        {props.restaurant.info.cuisines.join(", ")} {/* Assuming avgRating is a number */}
       </h4>
-      <h4>{props.restaurant.info.name}</h4>
+      <h4>{props.restaurant.info.costForTwo}</h4>
     </div>
   );
 };
