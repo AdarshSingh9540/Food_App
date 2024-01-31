@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IMG_CDN_URL } from '../Constant'; // Import IMG_CDN_URL here
 
 const RestrauantCard = (props) => {
-  
-
   return (
     <div className="card">
       <img  src={IMG_CDN_URL + props.restaurant.info.cloudinaryImageId} alt="img" /> 

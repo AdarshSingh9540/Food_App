@@ -1,5 +1,6 @@
+export const Logo_CDN = "https://cdn.octopix.in/uploads/company-logo/2020/12/22/bhukkad-adda-wJFMg3UtbA488gX4Y2hAtxVrJjAnD1tKIRvVV3iJe57xhFE0ARSmwaJhktVWaBitCTW7pVP3NVPWfw1p-350x350.jpg";
 export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/";
-
+export const Menu_URL= "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=733714&catalog_qa=undefined&submitAction=ENTER";
 export const restrauantList = [
     {
         "id": "52648",
@@ -244,4 +245,3 @@ export const restrauantList = [
       },
       
   ];
- 

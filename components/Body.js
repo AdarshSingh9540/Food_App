@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Picker from 'emoji-picker-react';
 import { restrauantList } from "../Constant";
 import RestrauantCard from "./RestrauantCard";
 import Shimmer from "./Shimmer";
+import useOnline from "../utils/useOnline";
 
 function filterData(searchInput, restaurants) {
   const filteredData = restaurants.filter((restaurant) =>
@@ -47,10 +49,15 @@ const fetchdata = async () => {
   }
 };
 
+const isOnline = useOnline();
+if(!isOnline){
+  return <h1> Offline ,Please Check your internet connection ...!!</h1>
+}
+
 if(!allRestaurants) return null;
 
-if(filteredRestaurants?.length ===0)  
-return <h1>No Restraunt is match</h1>;
+// if(filteredRestaurants?.length ===0)  
+// return <h1>No Restraunt is match</h1>;
   
   return allRestaurants.length===0?(<Shimmer/>) : (
     <>
