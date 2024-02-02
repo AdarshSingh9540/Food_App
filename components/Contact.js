@@ -1,3 +1,5 @@
+import React from "react";
+
 const Contact = () =>{
     return <h1>This is contact Page....</h1>
 }
