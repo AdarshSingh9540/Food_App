@@ -4,6 +4,7 @@ import { restrauantList } from "../Constant";
 import RestrauantCard from "./RestrauantCard";
 import Shimmer from "./Shimmer";
 import useOnline from "../utils/useOnline";
+import { Link } from "react-router-dom";
 
 function filterData(searchInput, restaurants) {
   const filteredData = restaurants.filter((restaurant) =>
@@ -16,7 +17,6 @@ const Body = () => {
   const [allRestaurants,setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  // console.log(restaurants)
 useEffect(() => {
   fetchdata();
 }, []);
@@ -82,9 +82,15 @@ if(!allRestaurants) return null;
 
       <div className="list">
 
-        {filteredRestaurants.map((restaurant,index) => (
-          <RestrauantCard key={index} restaurant={restaurant} />
-        ))}
+        {filteredRestaurants.map((restaurant,index) =>{ 
+          
+          const id = restaurant.info.id; // Assuming that 'info' contains the restaurant information
+console.log(id);
+
+          return (
+         <Link to={"/restaurant/"+id} key={id}> <RestrauantCard  restaurant={restaurant} />  </Link>
+        );
+        })}
       </div>
     </>
   );

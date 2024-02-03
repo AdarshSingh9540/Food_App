@@ -83,3 +83,6 @@
     margin: 20px;
     padding: 10px;
 }
+.Menu{
+    display: flex;
+}
