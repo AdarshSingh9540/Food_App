@@ -11,7 +11,11 @@ const Menu = () =>{
     const {resId} = useParams();
 
     const res = useRes(resId);
-   
+  
+    // let cat = res.cards[5].groupedCard.cardGroupMap.REGULAR.cards.filter((e) =>{
+    //   e.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    // })
+    // console.log(cat);
     return !res? <Shimmer/>: (
         <div className="Menu">
             <div>
@@ -27,6 +31,11 @@ const Menu = () =>{
         <h1>Menu</h1>
         <ul>
         {console.log(res.cards[5].groupedCard.cardGroupMap.REGULAR.cards)}
+      
+{console.log(res.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((e) => (
+  e.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+)))};
+
     {res.cards[5].groupedCard.cardGroupMap.REGULAR.cards.map((groupedCard) => (
       groupedCard?.card?.card?.itemCards?.map((itemCard) => (
         <li key={itemCard?.card?.info?.id}>{itemCard?.card?.info?.name}</li>
