@@ -10,6 +10,8 @@ import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Shimmer from "./components/Shimmer";
 import Menu from "./components/Menu";
+import { Provider } from "react-redux";
+import Store from "./utils/store";
 // import Cart from "./Cart";
 // react element
 // const header = React.createElement(
@@ -50,10 +52,12 @@ const Instamart = lazy(() => import("./components/Instamart"));
 const AppLaout = () =>{
   return(
     <>
+    <Provider store={Store}>
     <Header />
     {/* <Body /> */}
     <Outlet/>
     <Footer />
+    </Provider>
     </>
   )
 }
