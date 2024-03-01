@@ -32,9 +32,9 @@ const Menu = () =>{
         <ul>
         {/* {console.log(res.cards[5].groupedCard.cardGroupMap.REGULAR.cards)} */}
       
-{console.log(res.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((e) => (
+{/* {console.log(res.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((e) => (
   e.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-)))};
+)))}; */}
 
     {res?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((groupedCard) => (
       groupedCard?.card?.card?.itemCards?.map((itemCard) => (
