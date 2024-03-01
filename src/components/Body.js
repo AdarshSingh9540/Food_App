@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Picker from 'emoji-picker-react';
-import { restrauantList } from "../../Constant";
+// import { restrauantList } from "../../Constant";
 import RestrauantCard from "./RestrauantCard";
 import Shimmer from "./Shimmer";
-import useOnline from "../utils/useOnline";
+import useOnline from '../utils/useOnline';
 import { Link } from "react-router-dom";
 
 function filterData(searchInput, restaurants) {

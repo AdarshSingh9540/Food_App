@@ -1,17 +1,17 @@
 import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
-import About from "./components/About";
+import Header from "./src/components/Header";
+import Body from "./src/components/Body";
+import Footer from "./src/components/Footer";
+import About from "./src/components/About";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Error from "./components/Error";
-import Contact from "./components/Contact";
-import Cart from "./components/Cart";
-import Shimmer from "./components/Shimmer";
-import Menu from "./components/Menu";
+import Error from "./src/components/Error";
+import Contact from "./src/components/Contact";
+import Cart from "./src/components/Cart";
+import Shimmer from "./src/components/Shimmer";
+import Menu from "./src/components/Menu";
 import { Provider } from "react-redux";
-import Store from "./utils/store";
+import Store from "./src/utils/store";
 // import Cart from "./Cart";
 // react element
 // const header = React.createElement(

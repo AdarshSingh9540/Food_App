@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IMG_CDN_URL } from '../Constant'; // Import IMG_CDN_URL here
+import { IMG_CDN_URL } from '../utils/Constant'; // Import IMG_CDN_URL here
 import Shimmer from './Shimmer';
 
 const RestrauantCard = (props) => {
